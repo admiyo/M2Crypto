@@ -10,10 +10,10 @@ from M2Crypto import RSA, BIO, Rand, m2, EVP, X509
 
 class RSATestCase(unittest.TestCase):
 
-    errkey = 'tests/dsa.priv.pem'
-    privkey = 'tests/rsa.priv.pem'
-    privkey2 = 'tests/rsa.priv2.pem'
-    pubkey = 'tests/rsa.pub.pem'
+    errkey = 'test/dsa.priv.pem'
+    privkey = 'test/rsa.priv.pem'
+    privkey2 = 'test/rsa.priv2.pem'
+    pubkey = 'test/rsa.pub.pem'
 
     data = sha.sha('The magic words are squeamish ossifrage.').digest()
 
@@ -126,7 +126,7 @@ class RSATestCase(unittest.TestCase):
     def test_savepub(self):
         rsa = RSA.load_pub_key(self.pubkey)
         assert rsa.as_pem() # calls save_key_bio
-        f = 'tests/rsa_test.pub'
+        f = 'test/rsa_test.pub'
         try:
             self.assertEquals(rsa.save_key(f), 1)
         finally:
